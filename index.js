@@ -22,9 +22,9 @@ const mongoose=require("mongoose")
 app.set('view engine', 'ejs');
 
 mongoose.connect(process.env.MONGODB_URL).then(()=>{
-    
+    console.log("connection established with MONGO")
 }).catch((err)=>{
-   
+    console.log('connection failed',err)
 })
 server.listen(5500,console.log(5500))
 
