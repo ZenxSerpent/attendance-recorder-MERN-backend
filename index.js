@@ -7,7 +7,7 @@ app.use(cors())
 app.use(cookieParser())
 const http=require("http")
 const server=http.createServer(app)
-
+const PORT=3000
 
 const dotenv=require("dotenv")
 dotenv.config()
@@ -24,6 +24,6 @@ mongoose.connect(process.env.MONGODB_URL).then(()=>{
 }).catch((err)=>{
     console.log('connection failed',err)
 })
-server.listen(5500,console.log(5500))
+server.listen(process.env.PORT || PORT)
 
 app.use(router)
